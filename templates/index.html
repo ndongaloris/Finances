@@ -1,0 +1,42 @@
+{% extends "layout.html"%}
+
+{% block title%}
+Home Pages
+{% endblock %}
+
+{% block main %}
+<div class="container text-center" id="sections">
+    <div class="row">
+        <div class="col">
+            <div class="card mb-3" style="width: 18rem;">
+                <img src="/static/loan-logo.jpeg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Loan</h5>
+                    <p class="card-text">
+                        Monthly payments cover principal and interest.
+                        Amortization ensures consistent payments, prioritizing gradual principal reduction.
+                    </p>
+                    <form action="/loan" methods="Post">
+                        <button class="btn btn-primary" type="submit">GO Somewhere</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card mb-3" style="width: 18rem;">
+                <img src="/static/savings-logo.jpeg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Savings</h5>
+                    <p class="card-text">
+                        Savings, through regular deposits and interest growth,
+                        build long-term financial security and wealth with consistent contributions.
+                    </p>
+                    <form action="/savings" methods="Post">
+                        <button class="btn btn-primary" type="submit">GO Somewhere</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

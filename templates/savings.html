@@ -1,0 +1,57 @@
+{% extends "layout.html"%} {% block title%} Savings {% endblock %} {% block main
+%}
+<h1>Savings calculator</h1>
+<hr />
+
+<section id="savings-calculator">
+    <form action="/savings" method="POST">
+
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-4">
+                    <div class="input-group">
+                        <span class="input-group-text">Starting amount</span>
+                        <input type="number" aria-label="starting amount" name="starting_amount" class="form-control" />
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-text">Terms</span>
+                        <input type="number" aria-label="years to save" name="terms" class="form-control" />
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-text">Rate</span>
+                        <input type="number" aria-label="tate" name="rate" class="form-control" />
+                    </div>
+                </div>
+                <div class="col" id="sButton">
+                    <button type="submit" class="btn btn-secondary btn-sm">
+                        Generate Amount
+                    </button>
+                </div>
+                <h3>{{ message }} {{ fv }} {{ last_term }}</h3>
+                <hr>
+                <h4 class="col-12">Amortization Schedule</h4>
+                <table class="col-12 table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <td>Month</td>
+                            <td>Beginning Balance</td>
+                            <td>TO Interest</td>
+                            <td>Ending Balance</td>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        {% for index, row in future_value %}
+                        <tr>
+                            <td>{{ index }}</td>
+                            <td>{{ row['New Amount'] | round(2) }}</td>
+                            <td>{{ row['Monthly Earned Interest'] | round(2) }}</td>
+                            <td>{{ row['Monthly Compound Amount'] | round(2) }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+</section>
+{% endblock %}

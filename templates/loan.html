@@ -1,0 +1,82 @@
+{% extends "layout.html"%}
+
+{% block title %}
+Loan Calculator
+{% endblock %}
+
+{% block main%}
+<h1>Loan payment calculator</h1>
+<hr>
+<h4>Loan Information</h4>
+<section id="loan-calculator">
+    <form action="/loan" method="post">
+        <div class="container text-center">
+            <div class="row" id="loanInfo">
+                <div class="col-md-3" id="loan_input">
+                    <div class="input-group md">
+                        <span class="input-group-text">Loan Amount</span>
+                        <input type="numeric" aria-label="First name" name="amount" class="form-control">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-text">Interest Rate</span>
+                        <input type="numeric" aria-label="First name" name="rate" class="form-control">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-text">Loan Term(s)</span>
+                        <input type="numeric" aria-label="First name" name="terms" class="form-control">
+                    </div>
+                    <button type="submit" class=" btn btn-secondary btn-sm">
+                        Generate Amount
+                    </button>
+                </div>
+                <div class="col" id="generated">
+                    <div class="row">
+                        <table class="col-12">
+                            <thead>
+                                <tr>
+                                    <th>Monthly Payment</th>
+                                    <th>Total Interest</th>
+                                    <th>Total Payments</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>${{ monthly_payment }}</td>
+                                    <td>${{ total_interest }}</td>
+                                    <td>${{ total_payment }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <hr>
+                        <h4 class="col-12">Amortization Schedule</h4>
+                        <table class="col-12 table table-dark table-striped">
+                            <thead>
+                                <tr>
+                                    <td>Month</td>
+                                    <td>Beginning Balance</td>
+                                    <td>TO Interest</td>
+                                    <td>To Principal</td>
+                                    <td>Ending Balance</td>
+                                </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                                {% for index, row in schedule %}
+                                <tr>
+
+                                    <td>{{ index }}</td>
+                                    <td>{{ row['Beginning Balance'] | round(2) }}</td>
+                                    <td>{{ row['Interest Payment'] | round(2) }}</td>
+                                    <td>{{ row['Principal Payment'] | round(2) }}</td>
+                                    <td>{{ row['Remaining Balance'] | round(2) }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+
+{% endblock %}
