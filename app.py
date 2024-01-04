@@ -1,5 +1,4 @@
 from flask import Flask, flash, redirect,render_template, request, session
-from cs50 import SQL
 from datetime import datetime
 import numpy_financial as npf
 import pandas as pd
