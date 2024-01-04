@@ -9,10 +9,6 @@ app = Flask(__name__)
 today = datetime.now()
 year = today.year
 
-if __name__ == '__main__':
-    app.run(debug=True)
-
-
 @app.route("/")
 def index():
 
