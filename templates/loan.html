@@ -64,10 +64,10 @@ Loan Calculator
                                 <tr>
 
                                     <td>{{ index }}</td>
-                                    <td>{{ row['Beginning Balance'] | round(2) }}</td>
-                                    <td>{{ row['Interest Payment'] | round(2) }}</td>
-                                    <td>{{ row['Principal Payment'] | round(2) }}</td>
-                                    <td>{{ row['Remaining Balance'] | round(2) }}</td>
+                                    <td>${{ row['Beginning Balance'] | round(2) }}</td>
+                                    <td>${{ row['Interest Payment'] | round(2) }}</td>
+                                    <td>${{ row['Principal Payment'] | round(2) }}</td>
+                                    <td>${{ row['Remaining Balance'] | round(2) }}</td>
                                 </tr>
                                 {% endfor %}
                             </tbody>

@@ -41,9 +41,9 @@
                         {% for index, row in future_value %}
                         <tr>
                             <td>{{ index }}</td>
-                            <td>{{ row['New Amount'] | round(2) }}</td>
-                            <td>{{ row['Monthly Earned Interest'] | round(2) }}</td>
-                            <td>{{ row['Monthly Compound Amount'] | round(2) }}</td>
+                            <td>${{ row['New Amount'] | round(2) }}</td>
+                            <td>${{ row['Monthly Earned Interest'] | round(2) }}</td>
+                            <td>${{ row['Monthly Compound Amount'] | round(2) }}</td>
                         </tr>
                         {% endfor %}
                     </tbody>
