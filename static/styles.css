@@ -176,3 +176,10 @@ main{
     background-color: white;
     font-weight: bolder;
 }
+
+.input-group-text {
+    width: 120px;
+}
+.btn{
+    margin-top: 10px;
+}

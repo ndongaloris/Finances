@@ -11,15 +11,15 @@
                 <div class="col-md-3">
                     <div class="input-group">
                         <span class="input-group-text">Initial Amount</span>
-                        <input type="decimal" aria-label="starting amount" name="starting_amount" class="form-control" />
+                        <input type="number" step=".01" aria-label="starting amount" name="starting_amount" class="form-control" required/>
                     </div>
                     <div class="input-group">
                         <span class="input-group-text">Term in Years</span>
-                        <input type="decimal" aria-label="years to save" name="terms" class="form-control" />
+                        <input type="number" step=".01" aria-label="years to save" name="terms" class="form-control" required/>
                     </div>
                     <div class="input-group">
                         <span class="input-group-text">Rate in %</span>
-                        <input type="decimal" aria-label="tate" name="rate" class="form-control" />
+                        <input type="number" step=".01" aria-label="tate" name="rate" class="form-control" required />
                     </div>
                     <button type="submit" class="btn btn-secondary btn-sm">
                         Generate Amount
