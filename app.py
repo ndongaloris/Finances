@@ -17,8 +17,8 @@ def index():
 def loan():
     try:
         if request.method == "POST":
-            annual_interest_rate = int(request.form.get("rate"))
-            principal = int(request.form.get("amount"))
+            annual_interest_rate = float(request.form.get("rate"))
+            principal = float(request.form.get("amount"))
             terms = int(request.form.get("terms"))
 
             # Calculate monthly interest rate
